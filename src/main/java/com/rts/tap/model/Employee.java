@@ -21,8 +21,10 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "employees")
 public class Employee {
 
@@ -63,45 +65,14 @@ public class Employee {
 	@Column(name = "manager_id")
 	private Long managerId; // Instead of directly referencing the manager as an Employee, store the
 							// manager's employeeId
-
+	
 	@Column(name = "candidate_id")
 	private Long candidateId;
-
-	public Employee(Long employeeId, String employeeEmail, String employeeName, String workLocation,
-			EmploymentStatus employeeStatus, Role role, BusinessUnit businessUnit, LocalDateTime createdDate,
-			LocalDateTime updatedDate, Long managerId, Long candidateId, PersonalInfo personalInfo,
-			List<Experience> experience, List<FamilyDetails> familyDetails, List<Qualification> qualification,
-			List<Documents> documents) {
-		super();
-		this.employeeId = employeeId;
-		this.employeeEmail = employeeEmail;
-		this.employeeName = employeeName;
-		this.workLocation = workLocation;
-		this.employeeStatus = employeeStatus;
-		this.role = role;
-		this.businessUnit = businessUnit;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-		this.managerId = managerId;
-		this.candidateId = candidateId;
-		this.personalInfo = personalInfo;
-		this.experience = experience;
-		this.familyDetails = familyDetails;
-		this.qualification = qualification;
-		this.documents = documents;
-	}
-
+	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) // Ensure the proper cascade type
     @JoinColumn(name = "personal_info_id", referencedColumnName = "personal_info_id") 
 	private PersonalInfo personalInfo;
 
-	public Long getCandidateId() {
-		return candidateId;
-	}
-
-	public void setCandidateId(Long candidateId) {
-		this.candidateId = candidateId;
-	}
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Experience> experience;
@@ -123,131 +94,6 @@ public class Employee {
 	@PreUpdate
 	protected void onUpdate() {
 		updatedDate = LocalDateTime.now();
-	}
-
-	public Long getEmployeeId() {
-		return employeeId;
-	}
-
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
-
-	public String getEmployeeEmail() {
-		return employeeEmail;
-	}
-
-	public void setEmployeeEmail(String employeeEmail) {
-		this.employeeEmail = employeeEmail;
-	}
-
-	public String getEmployeeName() {
-		return employeeName;
-	}
-
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
-	}
-
-	public String getWorkLocation() {
-		return workLocation;
-	}
-
-	public void setWorkLocation(String workLocation) {
-		this.workLocation = workLocation;
-	}
-
-	public EmploymentStatus getEmployeeStatus() {
-		return employeeStatus;
-	}
-
-	public void setEmployeeStatus(EmploymentStatus employeeStatus) {
-		this.employeeStatus = employeeStatus;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
-	public BusinessUnit getBusinessUnit() {
-		return businessUnit;
-	}
-
-	public void setBusinessUnit(BusinessUnit businessUnit) {
-		this.businessUnit = businessUnit;
-	}
-
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public LocalDateTime getUpdatedDate() {
-		return updatedDate;
-	}
-
-	public void setUpdatedDate(LocalDateTime updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	public Long getManagerId() {
-		return managerId;
-	}
-
-	public void setManagerId(Long managerId) {
-		this.managerId = managerId;
-	}
-
-	public List<Experience> getExperience() {
-		return experience;
-	}
-
-	public void setExperience(List<Experience> experience) {
-		this.experience = experience;
-	}
-
-	public List<FamilyDetails> getFamilyDetails() {
-		return familyDetails;
-	}
-
-	public void setFamilyDetails(List<FamilyDetails> familyDetails) {
-		this.familyDetails = familyDetails;
-	}
-
-	public List<Qualification> getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(List<Qualification> qualification) {
-		this.qualification = qualification;
-	}
-
-	public List<Documents> getDocuments() {
-		return documents;
-	}
-
-	public void setDocuments(List<Documents> documents) {
-		this.documents = documents;
-	}
-
-	public PersonalInfo getPersonalInfo() {
-		return personalInfo;
-	}
-
-	public void setPersonalInfo(PersonalInfo personalInfo) {
-		this.personalInfo = personalInfo;
-	}
-
-	public Employee() {
-		super();
-
 	}
 
 	public enum EmploymentStatus {

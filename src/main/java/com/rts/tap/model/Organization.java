@@ -3,8 +3,10 @@ package com.rts.tap.model;
 import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "organizations")
 public class Organization {
 
@@ -81,142 +83,4 @@ public class Organization {
         ACTIVE, INACTIVE
     }
 
-	public Long getOrganizationId() {
-		return organizationId;
-	}
-
-	public void setOrganizationId(Long organizationId) {
-		this.organizationId = organizationId;
-	}
-
-	public String getOrganizationName() {
-		return organizationName;
-	}
-
-	public void setOrganizationName(String organizationName) {
-		this.organizationName = organizationName;
-	}
-
-	public String getOrganizationAddress() {
-		return organizationAddress;
-	}
-
-	public void setOrganizationAddress(String organizationAddress) {
-		this.organizationAddress = organizationAddress;
-	}
-
-	public String getContactPersonName() {
-		return contactPersonName;
-	}
-
-	public void setContactPersonName(String contactPersonName) {
-		this.contactPersonName = contactPersonName;
-	}
-
-	public String getContactPersonEmail() {
-		return contactPersonEmail;
-	}
-
-	public void setContactPersonEmail(String contactPersonEmail) {
-		this.contactPersonEmail = contactPersonEmail;
-	}
-
-	public String getContactPersonPhone() {
-		return contactPersonPhone;
-	}
-
-	public void setContactPersonPhone(String contactPersonPhone) {
-		this.contactPersonPhone = contactPersonPhone;
-	}
-
-	public String getOrganizationWebsiteUrl() {
-		return organizationWebsiteUrl;
-	}
-
-	public void setOrganizationWebsiteUrl(String organizationWebsiteUrl) {
-		this.organizationWebsiteUrl = organizationWebsiteUrl;
-	}
-
-	public Industry getIndustryType() {
-		return industryType;
-	}
-
-	public void setIndustryType(Industry industryType) {
-		this.industryType = industryType;
-	}
-
-	public OrganizationSize getSize() {
-		return size;
-	}
-
-	public void setSize(OrganizationSize size) {
-		this.size = size;
-	}
-
-	public LocalDateTime getOrganizationEstablishedDate() {
-		return organizationEstablishedDate;
-	}
-
-	public void setOrganizationEstablishedDate(LocalDateTime organizationEstablishedDate) {
-		this.organizationEstablishedDate = organizationEstablishedDate;
-	}
-
-	public Status getOrganizationStatus() {
-		return organizationStatus;
-	}
-
-	public void setOrganizationStatus(Status organizationStatus) {
-		this.organizationStatus = organizationStatus;
-	}
-
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public LocalDateTime getUpdatedDate() {
-		return updatedDate;
-	}
-
-	public void setUpdatedDate(LocalDateTime updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	public byte[] getLogo() {
-		return logo;
-	}
-
-	public void setLogo(byte[] logo) {
-		this.logo = logo;
-	}
-
-	public Organization(Long organizationId, String organizationName, String organizationAddress,
-			String contactPersonName, String contactPersonEmail, String contactPersonPhone,
-			String organizationWebsiteUrl, Industry industryType, OrganizationSize size,
-			LocalDateTime organizationEstablishedDate, Status organizationStatus, LocalDateTime createdDate,
-			LocalDateTime updatedDate, byte[] logo) {
-		super();
-		this.organizationId = organizationId;
-		this.organizationName = organizationName;
-		this.organizationAddress = organizationAddress;
-		this.contactPersonName = contactPersonName;
-		this.contactPersonEmail = contactPersonEmail;
-		this.contactPersonPhone = contactPersonPhone;
-		this.organizationWebsiteUrl = organizationWebsiteUrl;
-		this.industryType = industryType;
-		this.size = size;
-		this.organizationEstablishedDate = organizationEstablishedDate;
-		this.organizationStatus = organizationStatus;
-		this.createdDate = createdDate;
-		this.updatedDate = updatedDate;
-		this.logo = logo;
-	}
-
-	public Organization() {
-		super();
-	}
-    
 }

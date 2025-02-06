@@ -1,9 +1,5 @@
 package com.rts.tap.model;
-
 import java.time.LocalDateTime;
-
-import com.rts.tap.model.PersonalInfo.Gender;
-
 import jakarta.persistence.*;
 
 @Entity

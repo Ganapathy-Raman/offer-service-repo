@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
-
 import com.rts.tap.constants.MessageConstants;
 import com.rts.tap.dao.OfferApprovalDao;
 import com.rts.tap.dao.OfferDao;
@@ -96,9 +95,7 @@ public class OfferApprovalServiceImpl implements OfferApprovalService {
 	        } else if ("rejected".equalsIgnoreCase(offerApproval.getStatus())) {
 	            Offer offer = offerApproval.getOffer();
 	            offerDao.updateOfferLetter(offer);
-	        }
-
-	        // Update the approval status in the database
+	        }	        
 	        offerApprovalDao.updateOfferApprovalStatus(offerApproval);
 
 	    } catch (DataAccessException e) {
@@ -107,6 +104,4 @@ public class OfferApprovalServiceImpl implements OfferApprovalService {
 	        throw new OfferApprovalNotFoundException("Unexpected error while updating offer approval status");
 	    }
 	}
-	 
-	 	
 }

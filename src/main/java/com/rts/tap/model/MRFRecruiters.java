@@ -1,6 +1,5 @@
 package com.rts.tap.model;
 
-//import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -16,7 +15,6 @@ import jakarta.persistence.Table;
 @Table(name = "mrfRecruiters_table")
 public class MRFRecruiters  {
 
-//	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

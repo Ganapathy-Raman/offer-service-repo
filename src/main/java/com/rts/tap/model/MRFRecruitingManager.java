@@ -13,8 +13,6 @@ import jakarta.persistence.Table;
 @Table(name = "mrfRecruitingManager_table")
 public class MRFRecruitingManager  {
 
-//	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long mrfRecruitingManagerId;

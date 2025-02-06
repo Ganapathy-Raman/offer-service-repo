@@ -6,7 +6,8 @@ public class APIConstants {
 	public static final String BASE_SCHEDULE_EMAIL_URL = BASE_URL + "/schedule";
 	public static final String SAVE_SCHEDULE_EMAIL_URL = "/post";
 
-
+	
+	//	Offer API's
 	public static final String GET_OFFERLETTER_BY_RECRUITER_ID = "/getOfferLetterByRecruiterId/{employeeId}"; // offer
 	public static final String GET_OFFER_APPROVAL_BY_RECRUITINGMANAGERID = "/getAllOffersByRMId/{recruitingManagerId}"; // offer
 	public static final String GENERATE_OFFERLETTER_FOR_CANDIDATE = "/generateOfferLetter"; // offer
